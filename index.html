@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Christian — Portafolio</title>
+  <meta name="description" content="Portafolio de Christian — Desarrollador Web | Proyectos, tecnologías, experiencia y contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Christian — Ingeniería de Software</a>
+      <nav class="nav" id="nav">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#skills">Tecnologías</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#educacion">Educación</a>
+        <a href="#contacto" class="cta">Contacto / CV</a>
+      </nav>
+      <button id="nav-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Hola, soy Christian.</h1>
+        <p class="lead">Ingeniero en Software en formación — construyo aplicaciones web con JavaScript, Node.js y Docker. Me interesa la integración entre back y front para soluciones empresariales.</p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn">Ver proyectos</a>
+          <a href="assets/CV-Christian.pdf" class="btn btn-outline" download>Descargar CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="container section">
+      <h2>Proyectos destacados</h2>
+      <p class="muted">Breves descripciones y enlaces a repositorios / demo.</p>
+      <div class="projects-grid">
+        <!-- Repite este bloque por cada proyecto -->
+        <article class="card">
+          <img src="assets/project1.png" alt="Captura proyecto 1" class="card-img">
+          <div class="card-body">
+            <h3 class="card-title">Gestor de Tareas (ToDo App)</h3>
+            <p class="card-desc">SPA con React, Node.js y autenticación JWT. Dockerizado para despliegue en VPS.</p>
+            <div class="card-meta">
+              <small>React · Node · Docker · PostgreSQL</small>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/tuusuario/proyecto-todo" target="_blank" rel="noopener">Código</a>
+              <a href="https://demo-ejemplo.vercel.app" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- placeholder project -->
+        <article class="card placeholder">
+          <div class="card-body">
+            <h3 class="card-title">Proyecto 2</h3>
+            <p class="card-desc">Descripción breve — qué problema resuelve y tecnologías.</p>
+            <div class="card-meta"><small>Node · Express · MySQL</small></div>
+            <div class="card-actions">
+              <a href="#">Código</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="container section">
+      <h2>Tecnologías</h2>
+      <p class="muted">Herramientas y stacks que manejo con confianza.</p>
+      <ul class="skills-list">
+        <li>JavaScript (ES6+)</li>
+        <li>Node.js, Express</li>
+        <li>React / Next.js</li>
+        <li>Docker, Git, CI/CD</li>
+        <li>SQL (Postgres, MySQL) y nociones de NoSQL</li>
+        <li>HTML5, CSS3 (Flexbox, Grid)</li>
+        <li>Testing básico: Jest, Supertest</li>
+      </ul>
+    </section>
+
+    <section id="experiencia" class="container section">
+      <h2>Experiencia</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>TATA — Practicante / Desarrollador</h3>
+          <span class="muted">2024 — Presente</span>
+          <p>Participación en proyectos internos: integraciones con APIs, automatizaciones y soporte en despliegues Docker.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="educacion" class="container section">
+      <h2>Educación</h2>
+      <p>Bootcamp Desarrollo Web — (fecha) · Certificados: Git, JavaScript, HTML, CSS (LinkedIn Learning)</p>
+    </section>
+
+    <section id="contacto" class="container section">
+      <h2>Contacto</h2>
+      <p class="muted">Disponible para roles híbridos en Jalisco / remoto. Envíame un email o conéctate en LinkedIn.</p>
+      <div class="contact-grid">
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">linkedin.com/in/tu-perfil</a></p>
+          <p><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
+        </div>
+        <form action="mailto:tu.email@ejemplo.com" method="post" encType="text/plain" class="contact-form">
+          <label>
+            Nombre
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Mensaje
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Christian — Disponible para oportunidades. · <a href="assets/CV-Christian.pdf" download>CV</a> · <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a></small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
