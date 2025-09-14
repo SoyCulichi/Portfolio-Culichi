@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- INTRO OVERLAY (SVG draw) -->
+  <!-- INTRO OVERLAY -->
   <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
     <div class="intro-wrapper" role="img" aria-label="Intro DevCulichi">
       <svg id="intro-svg" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" class="intro-svg">
@@ -18,13 +18,12 @@
     </div>
   </div>
 
-  <!-- OFFCANVAS MENU (appears when hamburger clicked) -->
+  <!-- OFFCANVAS MENU -->
   <aside id="offcanvas" class="offcanvas" aria-hidden="true" aria-label="Menu">
     <div class="offcanvas-top">
       <div class="offcanvas-logo">DevCulichi</div>
       <button id="offcanvas-close" class="offcanvas-close" aria-label="Cerrar menú">✕</button>
     </div>
-
     <div class="offcanvas-body">
       <nav class="offcanvas-nav" aria-label="Navegación principal">
         <ul>
@@ -35,37 +34,32 @@
           <li><a href="#" data-close>RESUME</a></li>
         </ul>
       </nav>
-
-      <div class="offcanvas-vertical-social" aria-hidden="true">
-        <!-- left vertical social bars (use your icons in assets/icons/) -->
+      <div class="offcanvas-vertical-social">
         <a class="bar git" href="https://github.com/tuusuario" target="_blank" rel="noopener">
-          <img src="assets/icons/github.svg" alt="GitHub" width="20" height="20"><span>GitHub</span>
+          <img src="assets/icons/github.svg" alt="GitHub"><span>GitHub</span>
         </a>
         <a class="bar linkedin" href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="20" height="20"><span>LinkedIn</span>
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn"><span>LinkedIn</span>
         </a>
         <a class="bar twitter" href="https://twitter.com/tuusuario" target="_blank" rel="noopener">
-          <img src="assets/icons/twitter.svg" alt="Twitter" width="20" height="20"><span>Twitter</span>
+          <img src="assets/icons/twitter.svg" alt="Twitter"><span>Twitter</span>
         </a>
         <a class="bar calendly" href="#" target="_blank" rel="noopener">
-          <img src="assets/icons/calendly.svg" alt="Calendly" width="20" height="20"><span>Calendly</span>
+          <img src="assets/icons/calendly.svg" alt="Calendly"><span>Calendly</span>
         </a>
       </div>
     </div>
   </aside>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">DevCulichi</a>
-
-      <!-- hamburger -->
       <button id="nav-toggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
         <span class="ham-line"></span>
         <span class="ham-line"></span>
         <span class="ham-line"></span>
       </button>
-
       <nav class="nav" id="nav">
         <a href="#proyectos">Proyectos</a>
         <a href="#tooling">Tooling</a>
@@ -74,11 +68,11 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- MAIN -->
   <main>
+    <!-- HERO -->
     <section id="hero" class="hero">
       <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
-
       <div class="container hero-inner">
         <div class="hero-left">
           <span class="badge">✌️ Hi there! I'm DevCulichi</span>
@@ -92,22 +86,19 @@
             <a href="#" class="btn btn-outline">Descargar CV</a>
           </div>
         </div>
-
         <div class="hero-right">
-          <!-- Developer illustration -->
           <img src="assets/dev-illustration.svg" alt="Ilustración desarrollador" class="hero-illustration"/>
         </div>
       </div>
     </section>
 
+    <!-- PROYECTOS -->
     <section id="proyectos" class="container section">
       <h2>Proyectos</h2>
       <p class="muted">Breve showcase de trabajos</p>
       <div class="projects-grid">
         <article class="card" data-reveal>
-          <div class="card-img" style="display:flex;align-items:center;justify-content:center;background:#061016;color:var(--muted);height:160px">
-            <strong>Captura proyecto 1</strong>
-          </div>
+          <div class="card-img">Captura proyecto 1</div>
           <div class="card-body">
             <h3 class="card-title">ToDo App</h3>
             <p class="card-desc">React · Node · Docker. Autenticación y despliegue.</p>
@@ -117,7 +108,7 @@
             </div>
           </div>
         </article>
-        <article class="card placeholder" data-reveal>
+        <article class="card" data-reveal>
           <div class="card-body">
             <h3 class="card-title">Proyecto 2</h3>
             <p class="card-desc">Descripción breve de la solución.</p>
@@ -130,153 +121,63 @@
       </div>
     </section>
 
+    <!-- TOOLING -->
     <section id="tooling" class="container section">
       <h2>Tooling</h2>
-      <p class="muted">Tecnologías y herramientas (neon SVG 96×96)</p>
-
+      <p class="muted">Tecnologías y herramientas</p>
       <div class="tooling-grid">
-        <!-- inline icons or use assets/icons/*.svg -->
         <div class="tooling-card" data-reveal>
-          <div class="tool-icon" aria-hidden="true">
-            <img src="assets/icons/html.svg" width="96" height="96" alt="HTML">
-          </div>
-          <h4>HTML</h4>
+          <img src="assets/icons/html.svg" alt="HTML"><h4>HTML</h4>
           <small>Semántica y accesibilidad</small>
         </div>
-
         <div class="tooling-card" data-reveal>
-          <div class="tool-icon" aria-hidden="true">
-            <img src="assets/icons/css.svg" width="96" height="96" alt="CSS">
-          </div>
-          <h4>CSS</h4>
+          <img src="assets/icons/css.svg" alt="CSS"><h4>CSS</h4>
           <small>Layouts (Grid / Flex)</small>
         </div>
-
         <div class="tooling-card" data-reveal>
-          <div class="tool-icon" aria-hidden="true">
-            <img src="assets/icons/javascript.svg" width="96" height="96" alt="JavaScript">
-          </div>
-          <h4>JavaScript</h4>
+          <img src="assets/icons/javascript.svg" alt="JavaScript"><h4>JavaScript</h4>
           <small>ES6+, DOM & tooling</small>
         </div>
-
         <div class="tooling-card" data-reveal>
-          <div class="tool-icon" aria-hidden="true">
-            <img src="assets/icons/git.svg" width="96" height="96" alt="Git">
-          </div>
-          <h4>Git</h4>
+          <img src="assets/icons/git.svg" alt="Git"><h4>Git</h4>
           <small>Control de versiones</small>
         </div>
-
         <div class="tooling-card" data-reveal>
-          <div class="tool-icon" aria-hidden="true">
-            <img src="assets/icons/github.svg" width="96" height="96" alt="GitHub">
-          </div>
-          <h4>GitHub</h4>
+          <img src="assets/icons/github.svg" alt="GitHub"><h4>GitHub</h4>
           <small>Repositorios y CI</small>
         </div>
-
       </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contacto" class="container section">
       <h2>Contacto</h2>
       <p class="muted">Disponible para proyectos y colaboraciones.</p>
-      <div class="contact-grid">
-        <div>
-          <p><strong>Email:</strong> <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/tu-perfil</a></p>
-          <p><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
-        </div>
-
-        <form class="contact-form" action="mailto:tu.email@ejemplo.com" method="post" enctype="text/plain">
-          <label>Nombre<input type="text" name="name" required></label>
-          <label>Mensaje<textarea name="message" rows="4" required></textarea></label>
-          <button class="btn" type="submit">Enviar</button>
-        </form>
+      <div class="contact-info">
+        <p><strong>📧 Email:</strong> <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
+        <p><strong>💼 LinkedIn:</strong> <a href="#">linkedin.com/in/tu-perfil</a></p>
+        <p><strong>📍 Ubicación:</strong> Guadalajara, Jalisco</p>
       </div>
-
-      <!-- Footer contact row with tiles (social/contact) -->
-      <div class="contact-social" aria-label="Redes y contacto">
-        <a href="https://github.com/tuusuario" target="_blank" rel="noopener"><img src="assets/icons/github.svg" alt="GitHub"><span>GitHub</span></a>
-        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener"><img src="assets/icons/linkedin.svg" alt="LinkedIn"><span>LinkedIn</span></a>
-        <a href="mailto:tu.email@ejemplo.com"><img src="assets/icons/html.svg" alt="Email"><span>Shoot me a mail</span></a>
+      <div class="contact-social">
+        <a href="https://github.com/tuusuario" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"> GitHub</a>
+        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
+        <a href="mailto:tu.email@ejemplo.com"><img src="assets/icons/html.svg" alt="Email"> Email</a>
       </div>
-
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <small>© <span id="year"></span> DevCulichi — Disponible · <a href="#">CV</a></small>
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevCulichi - Portafolio</title>
-  <link rel="stylesheet" href="styllador">
-    </div>
-  </section>
-
-  <!-- Tooling -->
-  <section id="tooling">
-    <h2>Tooling</h2>
-    <p>Tecnologías y herramientas</p>
-    <div class="tool-grid">
-      <div class="tool-item">
-        <img src="html.svg" alt="HTML">
-        <span>HTML</span>
-      </div>
-      <div class="tool-item">
-        <img src="css.svg" alt="CSS">
-        <span>CSS</span>
-      </div>
-      <div class="tool-item">
-        <img src="javascript.svg" alt="JavaScript">
-        <span>JavaScript</span>
-      </div>
-      <div class="tool-item">
-        <img src="git.svg" alt="Git">
-        <span>Git</span>
-      </div>
-      <div class="tool-item">
-        <img src="github.svg" alt="GitHub">
-        <span>GitHub</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Disponible para proyectos y colaboraciones.</p>
-    <div class="contact-links">
-      <a href="https://github.com/" target="_blank">
-        <img src="github.svg" alt="GitHub"> GitHub
-      </a>
-      <a href="https://linkedin.com/" target="_blank">
-        <img src="linkedin.svg" alt="LinkedIn"> LinkedIn
-      </a>
-      <a href="mailto:tu.email@ejemplo.com">
-        <img src="mail.svg" alt="Email"> Email
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 DevCulichi — Portafolio</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <script>
+    // año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

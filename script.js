@@ -194,3 +194,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 });
+// ---------- HERO PARALLAX (text + illustration move on scroll, performant) ----------
+(() => {
+  const hero = document.querySelector('.hero');
+  const heroLeft = document.querySelector('.hero-left');
+  const heroImg = document.querySelector('.hero-illustration');
+  if (!hero || (!heroLeft && !heroImg)) return;
+
+  let latestY = 0;
+  let ticking = false;
+  const maxOffset = 40; // px (tweak intensity)
+
+  function onScroll() {
+    latestY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax(latestY);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  function updateParallax(scrollY) {
+    const rect = hero.getBoundingClientRect();
+    // only while hero is in viewport (improves perf)
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      // calculate progress: -1..1 based on hero center relative to viewport center
+      const centerY = rect.top + rect.height / 2;
+      const progress = (window.innerHeight / 2 - centerY) / (window.innerHeight / 2);
+      // apply transforms
+      const leftTranslate = progress * (maxOffset * 0.7);   // text moves less
+      const imgTranslate = progress * (maxOffset * 1.1);    // image moves more for parallax
+      if (heroLeft) heroLeft.style.transform = `translateY(${leftTranslate}px)`;
+      if (heroImg) heroImg.style.transform = `translateY(${imgTranslate}px)`;
+      // subtle parallax X (optional)
+      if (heroImg) heroImg.style.transform += ` translateX(${Math.min(20, Math.abs(progress*8)) * (progress>0? -1:1)}px)`;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  // initial frame
+  updateParallax(window.scrollY);
+})();
+
+// ---------- REVEAL ON SCROLL (if not present) ----------
+(() => {
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if (!reveals.length) return;
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+})();

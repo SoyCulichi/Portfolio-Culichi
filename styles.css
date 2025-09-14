@@ -267,3 +267,123 @@ footer {
   text-align: center;
   padding: 15px;
 }
+
+/* ========= THEME COLORS (use these variables at top of your styles.css) ========= */
+:root{
+  --bg: #051014;
+  --panel:#071217;
+  --accent: #00d86a;       /* neon green — slightly darker than before */
+  --accent-dark: #07a14a;  /* darker green used for header/footer */
+  --muted:#9aa3a6;
+  --text:#e6f3ef;
+  --container:1200px;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Header/footer background darker green */
+.site-header {
+  background: var(--accent-dark);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+}
+.site-footer{
+  background: var(--accent-dark);
+  color: #00120b;
+}
+
+/* Hero: make relative and allow parallax transforms */
+.hero{
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0 6rem;
+  --hero-parallax-max: 30px; /* tweak for parallax intensity */
+}
+.hero-inner{ display:flex; align-items:center; gap:2rem; }
+
+/* hero-left text and hero-right illustration transforms (will be animated via JS) */
+.hero-left, .hero-illustration {
+  transform: translateY(0);
+  transition: transform 0.25s linear;
+  will-change: transform;
+}
+
+/* Neon style for highlighted words */
+.neon{
+  color: var(--accent);
+  text-shadow:
+    0 0 4px rgba(0,216,106,0.6),
+    0 0 10px rgba(0,216,106,0.18);
+}
+
+/* Projects grid — card layout like reference */
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.card{
+  background: linear-gradient(180deg, rgba(8,14,16,0.6), rgba(5,7,10,0.85));
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,200,120,0.06);
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+  position: relative;
+}
+
+/* image/hero overlay in card */
+.card .card-img{
+  height: 170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+}
+
+/* card content */
+.card-body{ padding: 1.2rem 1.4rem 1.6rem; }
+.card-title{ margin:0 0 .5rem; font-size:1.15rem; color:var(--text); }
+.card-desc{ color:var(--muted); font-size:.95rem; line-height:1.45; }
+
+/* Small CTA row */
+.card-actions{ margin-top: .9rem; display:flex; gap:1rem; }
+.card-actions a{ color:var(--accent); font-weight:700; text-decoration:none; }
+
+/* Hover — lift + neon outline */
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 50px rgba(0,216,106,0.08);
+  outline: 2px solid rgba(0,216,106,0.06);
+}
+.card:hover::after{
+  content: "";
+  pointer-events: none;
+  position: absolute; inset: 0;
+  box-shadow: 0 0 40px rgba(0,216,106,0.06) inset;
+  border-radius: 14px;
+}
+
+/* Tooling cards: center + small neon glow */
+.tooling-card{
+  background: rgba(6,12,14,0.6);
+  border-radius:12px; padding:1rem; text-align:center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  transition: transform .2s, box-shadow .2s;
+}
+.tooling-card img{ max-width:96px; margin: 0 auto 0.75rem; filter: drop-shadow(0 6px 14px rgba(0,216,106,0.06)); }
+.tooling-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,216,106,0.06); }
+
+/* Contact social tiles */
+.contact-social a{ display:inline-flex; gap:.6rem; align-items:center; padding:.8rem 1rem; background:rgba(0,0,0,0.45); border-radius:8px; margin-right:.6rem; color:var(--text); text-decoration:none; }
+
+/* reveal-on-scroll helper (if not already) */
+.revealed{ opacity:1; transform:none; transition: all .6s cubic-bezier(.2,.9,.3,1); }
+[data-reveal]{ opacity:0; transform: translateY(18px); }
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .hero-inner{ flex-direction:column-reverse; text-align:center; }
+  .hero-right{ margin-top:1.5rem; }
+}
