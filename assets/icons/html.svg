@@ -1,0 +1,24 @@
+<svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-html">
+  <title id="title-html">HTML icon</title>
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="b"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- soft dark panel -->
+  <rect x="6" y="6" width="84" height="84" rx="12" fill="none" stroke="#0a2a18" stroke-width="1.2"></rect>
+
+  <!-- angle brackets -->
+  <g transform="translate(0,4)">
+    <path d="M28 28 L16 38 L28 48" fill="none" stroke="#00ff6a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"></path>
+    <path d="M68 28 L80 38 L68 48" fill="none" stroke="#00ff6a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"></path>
+  </g>
+
+  <!-- HTML label -->
+  <text x="48" y="70" text-anchor="middle" fill="#00ff6a" font-family="monospace" font-size="10" font-weight="700" filter="url(#glow)">HTML</text>
+</svg>

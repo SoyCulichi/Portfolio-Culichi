@@ -1,0 +1,59 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-dev">
+  <title id="title-dev">Developer illustration</title>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#08221a" stop-opacity="0.08"></stop>
+      <stop offset="1" stop-color="#00ff6a" stop-opacity="0.02"></stop>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"></feGaussianBlur>
+      <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background card -->
+  <rect x="40" y="40" width="1120" height="620" rx="22" fill="url(#g1)"></rect>
+
+  <!-- laptop base -->
+  <rect x="300" y="270" width="600" height="18" rx="9" fill="#0d1b17" opacity="0.9"></rect>
+  <rect x="360" y="100" width="480" height="220" rx="12" fill="#071217" stroke="#0b4027" stroke-width="3"></rect>
+
+  <!-- screen lines -->
+  <g transform="translate(380,140)">
+    <rect x="0" y="0" width="360" height="12" rx="4" fill="#0b281f"></rect>
+    <rect x="0" y="26" width="300" height="8" rx="4" fill="#062018"></rect>
+    <rect x="0" y="48" width="220" height="8" rx="4" fill="#062018"></rect>
+  </g>
+
+  <!-- developer body -->
+  <g transform="translate(160,220)">
+    <!-- torso -->
+    <ellipse cx="240" cy="220" rx="110" ry="90" fill="#0b2a20"></ellipse>
+    <rect x="170" y="130" width="140" height="130" rx="18" fill="#0b2a20"></rect>
+    <!-- shirt -->
+    <path d="M170 160 q70 40 140 0 v40 q-70 40 -140 0z" fill="#00ff6a" opacity="0.98" filter="url(#glow)"></path>
+    <!-- head -->
+    <circle cx="240" cy="80" r="56" fill="#dcd6c8" stroke="#222" stroke-width="1.6"></circle>
+    <path d="M210 74 q15 18 60 0" stroke="#222" stroke-width="2" fill="none"></path>
+    <!-- glasses -->
+    <rect x="205" y="60" width="24" height="18" rx="4" fill="#071217" stroke="#00ff6a" stroke-width="2"></rect>
+    <rect x="240" y="60" width="24" height="18" rx="4" fill="#071217" stroke="#00ff6a" stroke-width="2"></rect>
+    <path d="M229 68 h12" stroke="#00ff6a" stroke-width="1.4"></path>
+    <!-- mask -->
+    <rect x="210" y="88" width="60" height="14" rx="6" fill="#1b8b6a" opacity="0.95"></rect>
+  </g>
+
+  <!-- coffee and books -->
+  <g transform="translate(820,330)">
+    <rect x="0" y="80" width="90" height="18" rx="6" fill="#0b1720"></rect>
+    <rect x="8" y="12" width="74" height="60" rx="6" fill="#0b1720" stroke="#00ff6a" stroke-opacity="0.06"></rect>
+    <rect x="12" y="18" width="34" height="8" rx="3" fill="#00ff6a" opacity="0.06"></rect>
+    <circle cx="70" cy="30" r="10" fill="#00ff6a" opacity="0.04"></circle>
+  </g>
+
+  <!-- subtle glow -->
+  <g filter="url(#glow)" opacity="0.15">
+    <ellipse cx="600" cy="420" rx="310" ry="110" fill="#00ff6a"></ellipse>
+  </g>
+</svg>
