@@ -1,4 +1,4 @@
-// script.js — SVG intro draw (CULICHI), overlay hide, canvas bg, nav toggle, reveal on scroll, footer year
+// script.js — SVG intro draw (CULICHI), overlay hide, canvas bg, offcanvas menu, reveal on scroll, footer year
 document.addEventListener('DOMContentLoaded', () => {
   // set footer year
   const yearEl = document.getElementById('year');
@@ -6,58 +6,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- SVG intro draw ----------
   const overlay = document.getElementById('intro-overlay');
-  const introSvg = document.getElementById('intro-svg');
   const introText = document.getElementById('intro-text');
 
   if (introText && overlay) {
-    // compute length of the rendered text
     let length;
-    try {
-      length = introText.getComputedTextLength();
-    } catch (e) {
-      // fallback length
-      length = 1200;
-    }
+    try { length = introText.getComputedTextLength(); }
+    catch (e) { length = 1200; }
 
-    // apply dash array/offset
     introText.style.strokeDasharray = length;
     introText.style.strokeDashoffset = length;
 
-    // force reflow then animate dashoffset to 0 (draw)
-    requestAnimationFrame(() => {
-      // add class to trigger CSS transition (intro-drawn changes stroke-width & fill after draw)
-      // we'll animate strokeDashoffset via JS for smoother guaranteed timing
-      const drawDuration = 1500; // ms
-      const start = performance.now();
-      function step(now) {
-        const t = Math.min(1, (now - start) / drawDuration);
-        const eased = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t; // simple ease
-        introText.style.strokeDashoffset = Math.round(length * (1 - eased));
-        if (t < 1) requestAnimationFrame(step);
-        else {
-          // finalize
-          introText.style.strokeDashoffset = 0;
-          // add class to fill and reduce stroke width (creates neon fill effect)
-          overlay.classList.add('intro-drawn');
-          // after a short pause, hide overlay
-          setTimeout(() => {
-            overlay.classList.add('hiding');
-            setTimeout(() => {
-              // remove overlay from DOM to avoid capturing pointer events
-              overlay.remove();
-            }, 700);
-          }, 550);
-        }
+    const drawDuration = 1500; // ms
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min(1, (now - start) / drawDuration);
+      const eased = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+      introText.style.strokeDashoffset = Math.round(length * (1 - eased));
+      if (t < 1) requestAnimationFrame(step);
+      else {
+        introText.style.strokeDashoffset = 0;
+        overlay.classList.add('intro-drawn');
+        setTimeout(() => {
+          overlay.classList.add('hiding');
+          setTimeout(() => overlay.remove(), 700);
+        }, 550);
       }
-      requestAnimationFrame(step);
-    });
+    }
+    requestAnimationFrame(step);
   }
 
-  // ---------- Nav toggle ----------
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('nav-toggle');
-  if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('show'));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') nav.classList.remove('show'); });
+  // ---------- Offcanvas menu / hamburger ----------
+  const offcanvas = document.getElementById('offcanvas');
+  const navToggle = document.getElementById('nav-toggle');
+  const offcanvasClose = document.getElementById('offcanvas-close');
+
+  function openOffcanvas() {
+    if (!offcanvas) return;
+    offcanvas.classList.add('open');
+    offcanvas.setAttribute('aria-hidden', 'false');
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOffcanvas() {
+    if (!offcanvas) return;
+    offcanvas.classList.remove('open');
+    offcanvas.setAttribute('aria-hidden', 'true');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      if (offcanvas.classList.contains('open')) closeOffcanvas();
+      else openOffcanvas();
+    });
+  }
+  if (offcanvasClose) offcanvasClose.addEventListener('click', closeOffcanvas);
+
+  // allow links in offcanvas to close it
+  document.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', () => closeOffcanvas());
+  });
+
+  // close with Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeOffcanvas();
+    }
+  });
 
   // ---------- Reveal on scroll ----------
   const reveals = document.querySelectorAll('[data-reveal]');
@@ -72,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {threshold: 0.15});
     reveals.forEach(r => obs.observe(r));
   } else {
-    // fallback: reveal all
     reveals.forEach(r => r.classList.add('revealed'));
   }
 

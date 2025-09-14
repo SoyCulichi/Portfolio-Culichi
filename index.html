@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CULICHI — Portafolio</title>
   <meta name="description" content="Portafolio — CULICHI" />
-  <!-- Fuente para el título neon -->
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,22 +18,65 @@
     </div>
   </div>
 
+  <!-- OFFCANVAS MENU (appears when hamburger clicked) -->
+  <aside id="offcanvas" class="offcanvas" aria-hidden="true" aria-label="Menu">
+    <div class="offcanvas-top">
+      <div class="offcanvas-logo">CULICHI</div>
+      <button id="offcanvas-close" class="offcanvas-close" aria-label="Cerrar menú">✕</button>
+    </div>
+
+    <div class="offcanvas-body">
+      <nav class="offcanvas-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#hero" data-close>HOME</a></li>
+          <li><a href="#proyectos" data-close>WORK</a></li>
+          <li><a href="#tooling" data-close>TOOLING</a></li>
+          <li><a href="#contacto" data-close>CONTACT</a></li>
+          <li><a href="#" data-close>RESUME</a></li>
+        </ul>
+      </nav>
+
+      <div class="offcanvas-vertical-social" aria-hidden="true">
+        <!-- left vertical social bars (use your icons in assets/icons/) -->
+        <a class="bar git" href="https://github.com/tuusuario" target="_blank" rel="noopener">
+          <img src="assets/icons/github.svg" alt="GitHub" width="20" height="20"><span>GitHub</span>
+        </a>
+        <a class="bar linkedin" href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="20" height="20"><span>LinkedIn</span>
+        </a>
+        <a class="bar twitter" href="https://twitter.com/tuusuario" target="_blank" rel="noopener">
+          <img src="assets/icons/twitter.svg" alt="Twitter" width="20" height="20"><span>Twitter</span>
+        </a>
+        <a class="bar calendly" href="#" target="_blank" rel="noopener">
+          <img src="assets/icons/calendly.svg" alt="Calendly" width="20" height="20"><span>Calendly</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">CULICHI</a>
+
+      <!-- hamburger -->
+      <button id="nav-toggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+
       <nav class="nav" id="nav">
         <a href="#proyectos">Proyectos</a>
         <a href="#tooling">Tooling</a>
         <a href="#contacto" class="cta">Contacto / CV</a>
       </nav>
-      <button id="nav-toggle" aria-label="Abrir menú">☰</button>
     </div>
   </header>
 
   <!-- Main -->
   <main>
-    <section class="hero">
+    <section id="hero" class="hero">
       <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
 
       <div class="container hero-inner">
@@ -52,7 +94,7 @@
         </div>
 
         <div class="hero-right">
-          <!-- Placeholder ilustration (reemplaza por tu SVG/PNG) -->
+          <!-- Developer illustration -->
           <img src="assets/dev-illustration.svg" alt="Ilustración desarrollador" class="hero-illustration"/>
         </div>
       </div>
@@ -93,68 +135,42 @@
       <p class="muted">Tecnologías y herramientas (neon SVG 96×96)</p>
 
       <div class="tooling-grid">
-        <!-- HTML -->
+        <!-- inline icons or use assets/icons/*.svg -->
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
-            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
-              <path d="M10 10h44l-4 36L32 54 14 46z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
-              <text x="32" y="38" text-anchor="middle" font-size="6.8" fill="#00ff6a" font-family="monospace">HTML</text>
-            </svg>
+            <img src="assets/icons/html.svg" width="96" height="96" alt="HTML">
           </div>
           <h4>HTML</h4>
           <small>Semántica y accesibilidad</small>
         </div>
 
-        <!-- CSS -->
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
-            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
-              <path d="M12 12h40v12L32 38 12 24z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
-              <text x="32" y="36" text-anchor="middle" font-size="6.8" fill="#00ff6a" font-family="monospace">CSS</text>
-            </svg>
+            <img src="assets/icons/css.svg" width="96" height="96" alt="CSS">
           </div>
           <h4>CSS</h4>
           <small>Layouts (Grid / Flex)</small>
         </div>
 
-        <!-- JavaScript -->
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
-            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
-              <path d="M20 18c4-4 22-3 22 6 0 9-14 10-18 10-3 0-4-1-6-3" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
-              <text x="32" y="46" text-anchor="middle" font-size="6" fill="#00ff6a" font-family="monospace">JavaScript</text>
-            </svg>
+            <img src="assets/icons/js.svg" width="96" height="96" alt="JavaScript">
           </div>
           <h4>JavaScript</h4>
           <small>ES6+, DOM & tooling</small>
         </div>
 
-        <!-- Git -->
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
-            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
-              <circle cx="22" cy="22" r="4" fill="#00ff6a"/>
-              <circle cx="42" cy="22" r="4" fill="#00ff6a"/>
-              <circle cx="32" cy="38" r="4" fill="#00ff6a"/>
-              <path d="M24 24l14-2" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M32 26v8" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
+            <img src="assets/icons/git.svg" width="96" height="96" alt="Git">
           </div>
           <h4>Git</h4>
           <small>Control de versiones</small>
         </div>
 
-        <!-- GitHub -->
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
-            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
-              <path d="M18 38c4 6 14 6 14 6s10 0 14-6c2-3 3-7 3-10-5 2-10 0-12-2 0-3 1-6 4-8-6-1-12 2-14 6-2-4-8-7-14-6 3 2 4 5 4 8-2 2-7 4-12 2 0 3 1 7 3 10z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
+            <img src="assets/icons/github.svg" width="96" height="96" alt="GitHub">
           </div>
           <h4>GitHub</h4>
           <small>Repositorios y CI</small>
@@ -179,6 +195,14 @@
           <button class="btn" type="submit">Enviar</button>
         </form>
       </div>
+
+      <!-- Footer contact row with tiles (social/contact) -->
+      <div class="contact-social" aria-label="Redes y contacto">
+        <a href="https://github.com/tuusuario" target="_blank" rel="noopener"><img src="assets/icons/github.svg" alt="GitHub"><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener"><img src="assets/icons/linkedin.svg" alt="LinkedIn"><span>LinkedIn</span></a>
+        <a href="mailto:tu.email@ejemplo.com"><img src="assets/icons/html.svg" alt="Email"><span>Shoot me a mail</span></a>
+      </div>
+
     </section>
   </main>
 
