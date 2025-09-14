@@ -1,6 +1,8 @@
 # 🌐 Portfolio Website - Christian (SoyCulichi)
 
-[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://your-portfolio-link.com)
+![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-000000?style=for-the-badge&logo=vercel&logoColor=white)
+<p></p>
+<img src="https://github.com/SoyCulichi/Todo-App-Culichi/blob/main/Todoapp.gif" width="250px">
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
