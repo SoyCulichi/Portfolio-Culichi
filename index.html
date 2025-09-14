@@ -3,29 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Christian — Portafolio (neon)</title>
-  <meta name="description" content="Portafolio con entrada neon, tooling y proyectos." />
+  <title>CULICHI — Portafolio</title>
+  <meta name="description" content="Portafolio — CULICHI" />
+  <!-- Fuente para el título neon -->
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Intro overlay (entrada cool) -->
+  <!-- INTRO OVERLAY (SVG draw) -->
   <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
-    <div class="intro-inner">
-      <div class="logo-neon" role="img" aria-label="Logo Christian">
-        <!-- pequeño logo/neon -->
-        <svg width="84" height="84" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="8" y="8" width="84" height="84" rx="12" fill="none" stroke="#00ff6a" stroke-width="6" opacity="0.12"/>
-          <path d="M20 50h60" stroke="#00ff6a" stroke-width="6" stroke-linecap="round"/>
-          <circle cx="30" cy="30" r="6" fill="#00ff6a"/>
-        </svg>
-      </div>
-      <h1 class="intro-title">Christian — Frontend Engineer</h1>
+    <div class="intro-wrapper" role="img" aria-label="Intro CULICHI">
+      <svg id="intro-svg" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" class="intro-svg">
+        <text id="intro-text" x="50%" y="55%" text-anchor="middle" dominant-baseline="middle">CULICHI</text>
+      </svg>
     </div>
   </div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#">Christian</a>
+      <a class="brand" href="#">CULICHI</a>
       <nav class="nav" id="nav">
         <a href="#proyectos">Proyectos</a>
         <a href="#tooling">Tooling</a>
@@ -35,13 +32,14 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main>
     <section class="hero">
       <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
 
       <div class="container hero-inner">
         <div class="hero-left">
-          <span class="badge">✌️ Hi there! I'm Christian</span>
+          <span class="badge">✌️ Hi there! I'm CULICHI</span>
           <h1 class="hero-title">
             A <span class="neon">Frontend Engineer.</span><br>
             I help startups <span class="neon">Launch</span> & <span class="neon">Grow</span> their products
@@ -54,21 +52,8 @@
         </div>
 
         <div class="hero-right">
-          <!-- ilustracion SVG simple -->
-          <svg class="hero-illustration" width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="g" x1="0" x2="1">
-                <stop offset="0" stop-color="#00ff6a" stop-opacity="0.08"/>
-                <stop offset="1" stop-color="#00ff6a" stop-opacity="0.01"/>
-              </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="400" height="300" rx="16" fill="url(#g)"/>
-            <g transform="translate(80,50)">
-              <rect x="0" y="0" width="240" height="160" rx="12" fill="#071217" stroke="#073" stroke-opacity="0.08"/>
-              <circle cx="40" cy="40" r="18" fill="#00ff6a" opacity="0.12"/>
-              <rect x="30" y="90" width="180" height="10" rx="5" fill="#00ff6a" opacity="0.06"/>
-            </g>
-          </svg>
+          <!-- Placeholder ilustration (reemplaza por tu SVG/PNG) -->
+          <img src="assets/dev-illustration.svg" alt="Ilustración desarrollador" class="hero-illustration"/>
         </div>
       </div>
     </section>
@@ -112,9 +97,9 @@
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
             <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="62" height="62" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
-              <path d="M10 6h44l-3.6 40L32 58 7.6 46z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
-              <text x="32" y="36" text-anchor="middle" font-size="8" fill="#00ff6a" font-family="monospace">HTML</text>
+              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
+              <path d="M10 10h44l-4 36L32 54 14 46z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
+              <text x="32" y="38" text-anchor="middle" font-size="6.8" fill="#00ff6a" font-family="monospace">HTML</text>
             </svg>
           </div>
           <h4>HTML</h4>
@@ -125,9 +110,9 @@
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
             <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
-              <path d="M12 10h40v10L32 36 12 20z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
-              <text x="32" y="36" text-anchor="middle" font-size="8" fill="#00ff6a" font-family="monospace">CSS</text>
+              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
+              <path d="M12 12h40v12L32 38 12 24z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
+              <text x="32" y="36" text-anchor="middle" font-size="6.8" fill="#00ff6a" font-family="monospace">CSS</text>
             </svg>
           </div>
           <h4>CSS</h4>
@@ -138,9 +123,9 @@
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
             <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
               <path d="M20 18c4-4 22-3 22 6 0 9-14 10-18 10-3 0-4-1-6-3" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
-              <text x="32" y="46" text-anchor="middle" font-size="7" fill="#00ff6a" font-family="monospace">JavaScript</text>
+              <text x="32" y="46" text-anchor="middle" font-size="6" fill="#00ff6a" font-family="monospace">JavaScript</text>
             </svg>
           </div>
           <h4>JavaScript</h4>
@@ -151,7 +136,7 @@
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
             <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
               <circle cx="22" cy="22" r="4" fill="#00ff6a"/>
               <circle cx="42" cy="22" r="4" fill="#00ff6a"/>
               <circle cx="32" cy="38" r="4" fill="#00ff6a"/>
@@ -167,7 +152,7 @@
         <div class="tooling-card" data-reveal>
           <div class="tool-icon" aria-hidden="true">
             <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <rect x="1.2" y="1.2" width="61.6" height="61.6" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.12"/>
               <path d="M18 38c4 6 14 6 14 6s10 0 14-6c2-3 3-7 3-10-5 2-10 0-12-2 0-3 1-6 4-8-6-1-12 2-14 6-2-4-8-7-14-6 3 2 4 5 4 8-2 2-7 4-12 2 0 3 1 7 3 10z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
             </svg>
           </div>
@@ -199,7 +184,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> Christian — Disponible · <a href="#">CV</a></small>
+      <small>© <span id="year"></span> CULICHI — Disponible · <a href="#">CV</a></small>
     </div>
   </footer>
 

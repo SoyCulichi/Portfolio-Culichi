@@ -5,7 +5,7 @@
   --muted:#9aa3a6;
   --text:#e6f3ef;
   --container:1200px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 /* Reset */
@@ -21,21 +21,48 @@ body{
 }
 .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
 
-/* Intro overlay */
+/* --------------------------
+   Intro overlay & SVG draw
+   -------------------------- */
 .intro-overlay{
   position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.9));
-  backdrop-filter:blur(6px);
-  transition: opacity 500ms ease, visibility 500ms;
+  background:linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.97));
+  transition:opacity .7s ease, visibility .7s ease;
 }
-.intro-inner{display:flex;flex-direction:column;align-items:center;gap:.8rem;transform:translateY(0)}
-.logo-neon svg{filter:drop-shadow(0 0 12px rgba(0,255,106,0.18));}
-.intro-title{color:var(--accent);font-size:1.25rem;letter-spacing:1px;text-shadow:0 0 10px rgba(0,255,106,0.12)}
+.intro-wrapper{width:90%;max-width:1200px;text-align:center;pointer-events:none;}
+.intro-svg{width:100%;height:calc(20vh + 120px);display:block}
+#intro-text{
+  font-family: 'Audiowide', sans-serif;
+  font-size:140px;
+  fill: transparent;
+  stroke: var(--accent);
+  stroke-width:6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 8px 30px rgba(0,255,106,0.12));
+  /* prepared to animate via JS */
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+  transition: fill 300ms ease;
+  letter-spacing:6px;
+}
 
-/* hide animation (added class by JS) */
-.intro-overlay.hiding{opacity:0;visibility:hidden;pointer-events:none}
+/* when reveal finished, we add .intro-drawn -> fill text */
+.intro-drawn #intro-text{
+  fill: var(--accent);
+  stroke-width:2.4;
+  transition: stroke-dashoffset 900ms cubic-bezier(.2,.9,.2,1), fill 260ms ease 140ms, stroke-width 260ms;
+}
 
-/* Header */
+/* hide overlay */
+.intro-overlay.hiding{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+/* --- rest of page (header/hero etc) --- */
 .site-header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(0,0,0,0.25), transparent)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
 .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.05rem}
@@ -44,7 +71,7 @@ body{
 .nav a:hover{color:var(--text);background:rgba(255,255,255,0.02)}
 #nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.2rem}
 
-/* Hero */
+/* HERO */
 .hero{position:relative;overflow:hidden;padding:5.5rem 0 6rem}
 .bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 480px;gap:2rem;align-items:center;padding-top:2rem}
