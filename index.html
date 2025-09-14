@@ -3,21 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Christian — Portafolio</title>
-  <meta name="description" content="Portafolio de Christian — Desarrollador Web | Proyectos, tecnologías, experiencia y contacto." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Christian — Portafolio (neon)</title>
+  <meta name="description" content="Portafolio con entrada neon, tooling y proyectos." />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Intro overlay (entrada cool) -->
+  <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="logo-neon" role="img" aria-label="Logo Christian">
+        <!-- pequeño logo/neon -->
+        <svg width="84" height="84" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="8" y="8" width="84" height="84" rx="12" fill="none" stroke="#00ff6a" stroke-width="6" opacity="0.12"/>
+          <path d="M20 50h60" stroke="#00ff6a" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="30" cy="30" r="6" fill="#00ff6a"/>
+        </svg>
+      </div>
+      <h1 class="intro-title">Christian — Frontend Engineer</h1>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#">Christian — Ingeniería de Software</a>
+      <a class="brand" href="#">Christian</a>
       <nav class="nav" id="nav">
         <a href="#proyectos">Proyectos</a>
-        <a href="#skills">Tecnologías</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#educacion">Educación</a>
+        <a href="#tooling">Tooling</a>
         <a href="#contacto" class="cta">Contacto / CV</a>
       </nav>
       <button id="nav-toggle" aria-label="Abrir menú">☰</button>
@@ -26,42 +37,63 @@
 
   <main>
     <section class="hero">
-      <div class="container">
-        <h1>Hola, soy Christian.</h1>
-        <p class="lead">Ingeniero en Software en formación — construyo aplicaciones web con JavaScript, Node.js y Docker. Me interesa la integración entre back y front para soluciones empresariales.</p>
-        <div class="hero-actions">
-          <a href="#proyectos" class="btn">Ver proyectos</a>
-          <a href="assets/CV-Christian.pdf" class="btn btn-outline" download>Descargar CV</a>
+      <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <span class="badge">✌️ Hi there! I'm Christian</span>
+          <h1 class="hero-title">
+            A <span class="neon">Frontend Engineer.</span><br>
+            I help startups <span class="neon">Launch</span> & <span class="neon">Grow</span> their products
+          </h1>
+          <p class="hero-desc">Interfaces rápidas, limpias y con buen rendimiento — React · Node · Docker.</p>
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn">Ver proyectos</a>
+            <a href="#" class="btn btn-outline">Descargar CV</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- ilustracion SVG simple -->
+          <svg class="hero-illustration" width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#00ff6a" stop-opacity="0.08"/>
+                <stop offset="1" stop-color="#00ff6a" stop-opacity="0.01"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="400" height="300" rx="16" fill="url(#g)"/>
+            <g transform="translate(80,50)">
+              <rect x="0" y="0" width="240" height="160" rx="12" fill="#071217" stroke="#073" stroke-opacity="0.08"/>
+              <circle cx="40" cy="40" r="18" fill="#00ff6a" opacity="0.12"/>
+              <rect x="30" y="90" width="180" height="10" rx="5" fill="#00ff6a" opacity="0.06"/>
+            </g>
+          </svg>
         </div>
       </div>
     </section>
 
     <section id="proyectos" class="container section">
-      <h2>Proyectos destacados</h2>
-      <p class="muted">Breves descripciones y enlaces a repositorios / demo.</p>
+      <h2>Proyectos</h2>
+      <p class="muted">Breve showcase de trabajos</p>
       <div class="projects-grid">
-        <!-- Repite este bloque por cada proyecto -->
-        <article class="card">
-          <img src="assets/project1.png" alt="Captura proyecto 1" class="card-img">
+        <article class="card" data-reveal>
+          <div class="card-img" style="display:flex;align-items:center;justify-content:center;background:#061016;color:var(--muted);height:160px">
+            <strong>Captura proyecto 1</strong>
+          </div>
           <div class="card-body">
-            <h3 class="card-title">Gestor de Tareas (ToDo App)</h3>
-            <p class="card-desc">SPA con React, Node.js y autenticación JWT. Dockerizado para despliegue en VPS.</p>
-            <div class="card-meta">
-              <small>React · Node · Docker · PostgreSQL</small>
-            </div>
+            <h3 class="card-title">ToDo App</h3>
+            <p class="card-desc">React · Node · Docker. Autenticación y despliegue.</p>
             <div class="card-actions">
-              <a href="https://github.com/tuusuario/proyecto-todo" target="_blank" rel="noopener">Código</a>
-              <a href="https://demo-ejemplo.vercel.app" target="_blank" rel="noopener">Demo</a>
+              <a href="#">Código</a>
+              <a href="#">Demo</a>
             </div>
           </div>
         </article>
-
-        <!-- placeholder project -->
-        <article class="card placeholder">
+        <article class="card placeholder" data-reveal>
           <div class="card-body">
             <h3 class="card-title">Proyecto 2</h3>
-            <p class="card-desc">Descripción breve — qué problema resuelve y tecnologías.</p>
-            <div class="card-meta"><small>Node · Express · MySQL</small></div>
+            <p class="card-desc">Descripción breve de la solución.</p>
             <div class="card-actions">
               <a href="#">Código</a>
               <a href="#">Demo</a>
@@ -71,54 +103,94 @@
       </div>
     </section>
 
-    <section id="skills" class="container section">
-      <h2>Tecnologías</h2>
-      <p class="muted">Herramientas y stacks que manejo con confianza.</p>
-      <ul class="skills-list">
-        <li>JavaScript (ES6+)</li>
-        <li>Node.js, Express</li>
-        <li>React / Next.js</li>
-        <li>Docker, Git, CI/CD</li>
-        <li>SQL (Postgres, MySQL) y nociones de NoSQL</li>
-        <li>HTML5, CSS3 (Flexbox, Grid)</li>
-        <li>Testing básico: Jest, Supertest</li>
-      </ul>
-    </section>
+    <section id="tooling" class="container section">
+      <h2>Tooling</h2>
+      <p class="muted">Tecnologías y herramientas (neon SVG 96×96)</p>
 
-    <section id="experiencia" class="container section">
-      <h2>Experiencia</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>TATA — Practicante / Desarrollador</h3>
-          <span class="muted">2024 — Presente</span>
-          <p>Participación en proyectos internos: integraciones con APIs, automatizaciones y soporte en despliegues Docker.</p>
+      <div class="tooling-grid">
+        <!-- HTML -->
+        <div class="tooling-card" data-reveal>
+          <div class="tool-icon" aria-hidden="true">
+            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="62" height="62" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <path d="M10 6h44l-3.6 40L32 58 7.6 46z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
+              <text x="32" y="36" text-anchor="middle" font-size="8" fill="#00ff6a" font-family="monospace">HTML</text>
+            </svg>
+          </div>
+          <h4>HTML</h4>
+          <small>Semántica y accesibilidad</small>
         </div>
-      </div>
-    </section>
 
-    <section id="educacion" class="container section">
-      <h2>Educación</h2>
-      <p>Bootcamp Desarrollo Web — (fecha) · Certificados: Git, JavaScript, HTML, CSS (LinkedIn Learning)</p>
+        <!-- CSS -->
+        <div class="tooling-card" data-reveal>
+          <div class="tool-icon" aria-hidden="true">
+            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <path d="M12 10h40v10L32 36 12 20z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
+              <text x="32" y="36" text-anchor="middle" font-size="8" fill="#00ff6a" font-family="monospace">CSS</text>
+            </svg>
+          </div>
+          <h4>CSS</h4>
+          <small>Layouts (Grid / Flex)</small>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="tooling-card" data-reveal>
+          <div class="tool-icon" aria-hidden="true">
+            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <path d="M20 18c4-4 22-3 22 6 0 9-14 10-18 10-3 0-4-1-6-3" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="32" y="46" text-anchor="middle" font-size="7" fill="#00ff6a" font-family="monospace">JavaScript</text>
+            </svg>
+          </div>
+          <h4>JavaScript</h4>
+          <small>ES6+, DOM & tooling</small>
+        </div>
+
+        <!-- Git -->
+        <div class="tooling-card" data-reveal>
+          <div class="tool-icon" aria-hidden="true">
+            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <circle cx="22" cy="22" r="4" fill="#00ff6a"/>
+              <circle cx="42" cy="22" r="4" fill="#00ff6a"/>
+              <circle cx="32" cy="38" r="4" fill="#00ff6a"/>
+              <path d="M24 24l14-2" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M32 26v8" stroke="#00ff6a" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Git</h4>
+          <small>Control de versiones</small>
+        </div>
+
+        <!-- GitHub -->
+        <div class="tooling-card" data-reveal>
+          <div class="tool-icon" aria-hidden="true">
+            <svg width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="60" height="60" rx="8" fill="none" stroke="#00ff6a" stroke-width="1.2" opacity="0.14"/>
+              <path d="M18 38c4 6 14 6 14 6s10 0 14-6c2-3 3-7 3-10-5 2-10 0-12-2 0-3 1-6 4-8-6-1-12 2-14 6-2-4-8-7-14-6 3 2 4 5 4 8-2 2-7 4-12 2 0 3 1 7 3 10z" fill="none" stroke="#00ff6a" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>GitHub</h4>
+          <small>Repositorios y CI</small>
+        </div>
+
+      </div>
     </section>
 
     <section id="contacto" class="container section">
       <h2>Contacto</h2>
-      <p class="muted">Disponible para roles híbridos en Jalisco / remoto. Envíame un email o conéctate en LinkedIn.</p>
+      <p class="muted">Disponible para proyectos y colaboraciones.</p>
       <div class="contact-grid">
         <div>
           <p><strong>Email:</strong> <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">linkedin.com/in/tu-perfil</a></p>
+          <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/tu-perfil</a></p>
           <p><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
         </div>
-        <form action="mailto:tu.email@ejemplo.com" method="post" encType="text/plain" class="contact-form">
-          <label>
-            Nombre
-            <input type="text" name="name" required>
-          </label>
-          <label>
-            Mensaje
-            <textarea name="message" rows="4" required></textarea>
-          </label>
+
+        <form class="contact-form" action="mailto:tu.email@ejemplo.com" method="post" enctype="text/plain">
+          <label>Nombre<input type="text" name="name" required></label>
+          <label>Mensaje<textarea name="message" rows="4" required></textarea></label>
           <button class="btn" type="submit">Enviar</button>
         </form>
       </div>
@@ -127,7 +199,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> Christian — Disponible para oportunidades. · <a href="assets/CV-Christian.pdf" download>CV</a> · <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a></small>
+      <small>© <span id="year"></span> Christian — Disponible · <a href="#">CV</a></small>
     </div>
   </footer>
 
