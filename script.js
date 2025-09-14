@@ -151,10 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let s of stars){
         s.y += s.dy;
-        if (s.y > h) s.y = -10;
+        if (s.y > h) {
+          s.y = 0;
+          s.x = Math.random()*w;
+        }
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
         ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
         ctx.fill();
       }
       requestAnimationFrame(draw);
@@ -174,4 +177,20 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
   })();
 
+  // ---------- Menu toggle ----------
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  if (menuToggle && menu) {
+    menuToggle.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+  // ---------- Intro auto-hide ----------
+  const intro = document.getElementById("intro");
+  if (intro) {
+    setTimeout(() => {
+      intro.style.display = "none";
+    }, 4000);
+  }
 });

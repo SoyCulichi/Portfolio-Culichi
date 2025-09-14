@@ -149,3 +149,121 @@ body{
   .contact-grid{grid-template-columns:1fr}
   .intro-svg{height:calc(18vh + 80px)}
 }
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Intro */
+#intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.intro-svg text {
+  fill: none;
+  stroke: #00ff66;
+  stroke-width: 2;
+  font-size: 100px;
+  font-family: monospace;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw 3s linear forwards, fadeout 1s 3s forwards;
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes fadeout {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #00ff66;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+header .logo { font-weight: bold; color: #111; }
+header nav { display: none; }
+header nav a {
+  color: #111; margin-left: 20px; text-decoration: none;
+}
+.menu-toggle {
+  cursor: pointer;
+  font-size: 24px;
+  color: #111;
+}
+
+/* Hero */
+#hero {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+.hero-text { max-width: 50%; }
+.hero-text h1 { font-size: 2.5rem; }
+.hero-text .highlight { color: #00ff66; }
+.hero-img img { width: 300px; }
+
+/* Tooling */
+#tooling { padding: 50px 20px; text-align: center; }
+.tool-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+.tool-item {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.tool-item:hover { transform: scale(1.1); }
+.tool-item img { width: 60px; margin-bottom: 10px; }
+
+/* Contacto */
+#contacto {
+  padding: 50px 20px;
+  background: #111;
+  text-align: center;
+}
+.contact-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.contact-links a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-links img { width: 30px; }
+
+/* Footer */
+footer {
+  background: #00ff66;
+  color: #111;
+  text-align: center;
+  padding: 15px;
+}
