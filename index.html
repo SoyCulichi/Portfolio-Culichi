@@ -93,42 +93,90 @@
     </section>
 
     <!-- PROYECTOS -->
-    <section id="proyectos" class="container section">
-      <h2>Proyectos</h2>
-      <p class="muted">Breve showcase de trabajos</p>
-      <div class="projects-grid">
-        <article class="card" data-reveal>
-          <div class="card-img">Captura proyecto 1</div>
-          <div class="card-body">
-            <h3 class="card-title">ToDo App</h3>
-            <p class="card-desc">React · Node · Docker. Autenticación y despliegue.</p>
-            <div class="card-actions">
-              <a href="#">Código</a>
-              <a href="#">Demo</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-reveal>
-          <div class="card-body">
-            <h3 class="card-title">Proyecto 2</h3>
-            <p class="card-desc">Descripción breve de la solución.</p>
-            <div class="card-actions">
-              <a href="#">Código</a>
-              <a href="#">Demo</a>
-            </div>
-          </div>
-        </article>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="container section">
+  <h2>Projects</h2>
+  <p class="muted">A brief showcase of selected works</p>
+
+  <div class="projects-grid">
+    <!-- Project: Calculator -->
+    <article class="card" data-reveal>
+      <!-- top thumbnail (background) -->
+      <div
+        class="card-img"
+        role="img"
+        aria-label="Calculator app screenshot"
+        style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/calculator.png');">
       </div>
-    </section>
+
+      <div class="card-body">
+        <h3 class="card-title">Calculator App</h3>
+
+        <div class="card-desc-wrap">
+          <p class="card-desc">
+            A lightweight calculator with memory and keyboard shortcuts. Built with modern JavaScript and CSS,
+            responsive across devices and optimized for quick interactions.
+          </p>
+          <!-- fade overlay -->
+          <div class="card-fade" aria-hidden="true"></div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://github.com/yourusername/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
+            <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
+          </a>
+          <a href="https://yourdomain.com/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
+            <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project: ToDo App -->
+    <article class="card" data-reveal>
+      <div
+        class="card-img"
+        role="img"
+        aria-label="ToDo app screenshot"
+        style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/todo.png');">
+      </div>
+
+      <div class="card-body">
+        <h3 class="card-title">ToDo App</h3>
+
+        <div class="card-desc-wrap">
+          <p class="card-desc">
+            Fullstack ToDo application with authentication and persistence. React front-end, Node/Express backend,
+            and Docker-ready deployment scripts — ideal as a starter for production demos.
+          </p>
+          <div class="card-fade" aria-hidden="true"></div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://github.com/yourusername/todo-app" target="_blank" rel="noopener noreferrer" class="card-link">
+            <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
+          </a>
+          <a href="https://yourdomain.com/todo" target="_blank" rel="noopener noreferrer" class="card-link">
+            <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 
     <!-- TOOLING -->
+
     <section id="tooling" class="container section">
       <h2>Tooling</h2>
-      <p class="muted">Tecnologías y herramientas</p>
+      <p class="muted">Technologies & Tools</p>
       <div class="tooling-grid">
         <div class="tooling-card" data-reveal>
           <img src="assets/icons/html.svg" alt="HTML"><h4>HTML</h4>
-          <small>Semántica y accesibilidad</small>
+          <small>Semantics & Accessibility</small>
         </div>
         <div class="tooling-card" data-reveal>
           <img src="assets/icons/css.svg" alt="CSS"><h4>CSS</h4>
@@ -136,45 +184,51 @@
         </div>
         <div class="tooling-card" data-reveal>
           <img src="assets/icons/javascript.svg" alt="JavaScript"><h4>JavaScript</h4>
-          <small>ES6+, DOM & tooling</small>
+          <small>ES6+, DOM & Tooling</small>
         </div>
         <div class="tooling-card" data-reveal>
           <img src="assets/icons/git.svg" alt="Git"><h4>Git</h4>
-          <small>Control de versiones</small>
+          <small>Version Control</small>
         </div>
         <div class="tooling-card" data-reveal>
           <img src="assets/icons/github.svg" alt="GitHub"><h4>GitHub</h4>
-          <small>Repositorios y CI</small>
+          <small>Repositories & CI</small>
         </div>
       </div>
-    </section>
+      </section> 
+
+    
 
     <!-- CONTACTO -->
+
     <section id="contacto" class="container section">
-      <h2>Contacto</h2>
-      <p class="muted">Disponible para proyectos y colaboraciones.</p>
+      <h2>Contact</h2>
+      <p class="muted">Available for projects and collaborations.</p>
       <div class="contact-info">
-        <p><strong>📧 Email:</strong> <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
-        <p><strong>💼 LinkedIn:</strong> <a href="#">linkedin.com/in/tu-perfil</a></p>
+        <p><strong>📧 Email:</strong> <a href="mailto:culichi2603@gmail.com">culichi2603@gmail.com</a></p>
+        <p><strong>💼 LinkedIn:</strong> <a href="https://mx.linkedin.com/in/christian-armando-velasco-estrada-a24590382/en">DevCulichi</a></p>
         <p><strong>📍 Ubicación:</strong> Guadalajara, Jalisco</p>
       </div>
       <div class="contact-social">
-        <a href="https://github.com/tuusuario" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"> GitHub</a>
-        <a href="https://www.linkedin.com/in/tu-perfil" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
-        <a href="mailto:tu.email@ejemplo.com"><img src="assets/icons/html.svg" alt="Email"> Email</a>
+        <a href="https://github.com/SoyCulichi" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"> GitHub</a>
+        <a href="https://mx.linkedin.com/in/christian-armando-velasco-estrada-a24590382/en" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
+        <a href="mailto:culichi2603@gmail.com"><img src="assets/icons/html.svg" alt="Email"> Email</a>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
+
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> DevCulichi — Disponible · <a href="#">CV</a></small>
+      <small>© <span id="year"></span> DevCulichi — Available · <a href="#">CV</a></small>
     </div>
   </footer>
 
   <!-- SCRIPT -->
+
   <script src="script.js"></script>
+
   <script>
     // año dinámico
     document.getElementById("year").textContent = new Date().getFullYear();
