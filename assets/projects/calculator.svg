@@ -1,0 +1,38 @@
+<svg width="400" height="250" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="250" fill="#071217"/>
+  <rect x="20" y="20" width="360" height="210" rx="10" fill="#051014" stroke="#00ff6a" stroke-width="1"/>
+  
+  <!-- Calculator display -->
+  <rect x="40" y="40" width="320" height="60" rx="5" fill="#000" stroke="#00ff6a" stroke-width="1"/>
+  <text x="350" y="75" text-anchor="end" fill="#00ff6a" font-family="monospace" font-size="24" font-weight="bold">123.456</text>
+  
+  <!-- Calculator buttons -->
+  <g fill="#071217" stroke="#00ff6a" stroke-width="1">
+    <!-- Row 1 -->
+    <rect x="50" y="120" width="60" height="40" rx="5"/>
+    <rect x="120" y="120" width="60" height="40" rx="5"/>
+    <rect x="190" y="120" width="60" height="40" rx="5"/>
+    <rect x="260" y="120" width="60" height="40" rx="5"/>
+    
+    <!-- Row 2 -->
+    <rect x="50" y="170" width="60" height="40" rx="5"/>
+    <rect x="120" y="170" width="60" height="40" rx="5"/>
+    <rect x="190" y="170" width="60" height="40" rx="5"/>
+    <rect x="260" y="170" width="60" height="40" rx="5"/>
+  </g>
+  
+  <!-- Button labels -->
+  <g fill="#e6f3ef" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <text x="80" y="145">C</text>
+    <text x="150" y="145">±</text>
+    <text x="220" y="145">%</text>
+    <text x="290" y="145">÷</text>
+    <text x="80" y="195">7</text>
+    <text x="150" y="195">8</text>
+    <text x="220" y="195">9</text>
+    <text x="290" y="195">×</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="235" text-anchor="middle" fill="#00ff6a" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Calculator App</text>
+</svg>

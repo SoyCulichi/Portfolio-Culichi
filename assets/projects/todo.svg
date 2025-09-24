@@ -1,0 +1,34 @@
+<svg width="400" height="250" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="250" fill="#071217"/>
+  <rect x="20" y="20" width="360" height="210" rx="10" fill="#051014" stroke="#00ff6a" stroke-width="1"/>
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="320" height="40" rx="5" fill="#071217" stroke="#00ff6a" stroke-width="1"/>
+  <text x="200" y="65" text-anchor="middle" fill="#00ff6a" font-family="Arial, sans-serif" font-size="16" font-weight="bold">My Todo List</text>
+  
+  <!-- Todo items -->
+  <g fill="#e6f3ef" font-family="Arial, sans-serif" font-size="14">
+    <!-- Completed item -->
+    <circle cx="60" cy="105" r="8" fill="#00ff6a"/>
+    <text x="80" y="110" fill="#9aa3a6" text-decoration="line-through">✓ Learn React.js</text>
+    
+    <!-- Active item -->
+    <circle cx="60" cy="130" r="8" fill="none" stroke="#00ff6a" stroke-width="2"/>
+    <text x="80" y="135">Build Todo App</text>
+    
+    <!-- Another item -->
+    <circle cx="60" cy="155" r="8" fill="none" stroke="#00ff6a" stroke-width="2"/>
+    <text x="80" y="160">Deploy to production</text>
+    
+    <!-- Add new todo input -->
+    <rect x="50" y="180" width="300" height="30" rx="5" fill="#000" stroke="#00ff6a" stroke-width="1"/>
+    <text x="60" y="200" fill="#9aa3a6" font-style="italic">Add new todo...</text>
+  </g>
+  
+  <!-- Add button -->
+  <circle cx="330" cy="195" r="12" fill="#00ff6a"/>
+  <text x="330" y="200" text-anchor="middle" fill="#000" font-size="16" font-weight="bold">+</text>
+  
+  <!-- Title -->
+  <text x="200" y="235" text-anchor="middle" fill="#00ff6a" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Todo App</text>
+</svg>
