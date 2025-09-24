@@ -1,254 +1,266 @@
-// script.js — SVG intro draw (CULICHI), overlay hide, canvas bg, offcanvas menu, reveal on scroll, footer year
+// ============================================================
+// script.js — Animaciones SVG intro, overlay, canvas fondo, menú offcanvas, reveal on scroll, año footer
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
-  // set footer year
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+    // --- Footer: año dinámico ---
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---------- SVG intro draw ----------
-  const overlay = document.getElementById('intro-overlay');
-  const introText = document.getElementById('intro-text');
+    // --- SVG intro draw ---
+    const overlay = document.getElementById('intro-overlay');
+    const introText = document.getElementById('intro-text');
 
-  if (introText && overlay) {
-    let length;
-    try { length = introText.getComputedTextLength(); }
-    catch (e) { length = 1200; }
-
-    introText.style.strokeDasharray = length;
-    introText.style.strokeDashoffset = length;
-
-    const drawDuration = 1500; // ms
-    const start = performance.now();
-    function step(now) {
-      const t = Math.min(1, (now - start) / drawDuration);
-      const eased = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
-      introText.style.strokeDashoffset = Math.round(length * (1 - eased));
-      if (t < 1) requestAnimationFrame(step);
-      else {
-        introText.style.strokeDashoffset = 0;
-        overlay.classList.add('intro-drawn');
-        setTimeout(() => {
-          overlay.classList.add('hiding');
-          setTimeout(() => overlay.remove(), 700);
-        }, 550);
-      }
-    }
-    requestAnimationFrame(step);
-  }
-
-  // ---------- Offcanvas menu / hamburger ----------
-  const offcanvas = document.getElementById('offcanvas');
-  const navToggle = document.getElementById('nav-toggle');
-  const offcanvasClose = document.getElementById('offcanvas-close');
-
-  function openOffcanvas() {
-    if (!offcanvas) return;
-    offcanvas.classList.add('open');
-    offcanvas.setAttribute('aria-hidden', 'false');
-    navToggle.classList.add('open');
-    navToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeOffcanvas() {
-    if (!offcanvas) return;
-    offcanvas.classList.remove('open');
-    offcanvas.setAttribute('aria-hidden', 'true');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      if (offcanvas.classList.contains('open')) closeOffcanvas();
-      else openOffcanvas();
-    });
-  }
-  if (offcanvasClose) offcanvasClose.addEventListener('click', closeOffcanvas);
-
-  // allow links in offcanvas to close it
-  document.querySelectorAll('[data-close]').forEach(el => {
-    el.addEventListener('click', () => closeOffcanvas());
-  });
-
-  // close with Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeOffcanvas();
-    }
-  });
-
-  // ---------- Reveal on scroll ----------
-  const reveals = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window && reveals.length) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('revealed');
-          obs.unobserve(e.target);
+    if (introText && overlay) {
+        let length;
+        try {
+            length = introText.getComputedTextLength();
+        } catch (e) {
+            length = 1200;
         }
-      });
-    }, {threshold: 0.15});
-    reveals.forEach(r => obs.observe(r));
-  } else {
-    reveals.forEach(r => r.classList.add('revealed'));
-  }
 
-  // ---------- Canvas background (stars + grid) ----------
-  (function initCanvasBg(){
-    const canvas = document.getElementById('bg-canvas');
-    if (!canvas || !canvas.getContext) return;
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = canvas.clientWidth;
-    let h = canvas.height = canvas.clientHeight;
-    let stars = [];
+        introText.style.strokeDasharray = length;
+        introText.style.strokeDashoffset = length;
 
-    function initStars() {
-      stars = [];
-      const count = Math.max(30, Math.floor((w*h)/8000));
-      for (let i=0;i<count;i++){
-        stars.push({
-          x: Math.random()*w,
-          y: Math.random()*h*0.9,
-          r: Math.random()*1.4 + 0.3,
-          alpha: Math.random()*0.8 + 0.15,
-          dy: Math.random()*0.35 + 0.02
+        const drawDuration = 1500; // ms
+        const start = performance.now();
+
+        function step(now) {
+            const t = Math.min(1, (now - start) / drawDuration);
+            const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+            introText.style.strokeDashoffset = Math.round(length * (1 - eased));
+            if (t < 1) {
+                requestAnimationFrame(step);
+            } else {
+                introText.style.strokeDashoffset = 0;
+                overlay.classList.add('intro-drawn');
+                setTimeout(() => {
+                    overlay.classList.add('hiding');
+                    setTimeout(() => overlay.remove(), 700);
+                }, 550);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    // --- Menú offcanvas / hamburger ---
+    const offcanvas = document.getElementById('offcanvas');
+    const navToggle = document.getElementById('nav-toggle');
+    const offcanvasClose = document.getElementById('offcanvas-close');
+
+    function openOffcanvas() {
+        if (!offcanvas) return;
+        offcanvas.classList.add('open');
+        offcanvas.setAttribute('aria-hidden', 'false');
+        navToggle.classList.add('open');
+        navToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeOffcanvas() {
+        if (!offcanvas) return;
+        offcanvas.classList.remove('open');
+        offcanvas.setAttribute('aria-hidden', 'true');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            if (offcanvas.classList.contains('open')) closeOffcanvas();
+            else openOffcanvas();
         });
-      }
     }
+    if (offcanvasClose) offcanvasClose.addEventListener('click', closeOffcanvas);
 
-    function drawGrid(){
-      ctx.save();
-      ctx.translate(0, h*0.22);
-      ctx.strokeStyle = 'rgba(0,255,106,0.04)';
-      ctx.lineWidth = 1;
-      const rows = 12;
-      for (let i=0;i<rows;i++){
-        const y = (i/rows) * (h*0.8);
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-      for (let i=0;i<20;i++){
-        const x = (i/19)*w;
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x - (h*0.6), h*0.8);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      const grad = ctx.createLinearGradient(0,0,0,h);
-      grad.addColorStop(0, '#051014');
-      grad.addColorStop(1, '#020507');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0,0,w,h);
-
-      drawGrid();
-
-      for (let s of stars){
-        s.y += s.dy;
-        if (s.y > h) {
-          s.y = 0;
-          s.x = Math.random()*w;
-        }
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-
-    let resizeTimer;
-    function onResize(){
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(()=> {
-        w = canvas.width = canvas.clientWidth;
-        h = canvas.height = canvas.clientHeight;
-        initStars();
-      }, 120);
-    }
-    window.addEventListener('resize', onResize);
-    initStars();
-    draw();
-  })();
-
-  // ---------- Menu toggle ----------
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-  if (menuToggle && menu) {
-    menuToggle.addEventListener("click", () => {
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    // Cierra el menú al hacer click en links con [data-close]
+    document.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', () => closeOffcanvas());
     });
-  }
 
-  // ---------- Intro auto-hide ----------
-  const intro = document.getElementById("intro");
-  if (intro) {
-    setTimeout(() => {
-      intro.style.display = "none";
-    }, 4000);
-  }
+    // Cierra el menú con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeOffcanvas();
+        }
+    });
+
+    // --- Reveal on scroll ---
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && reveals.length) {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('revealed');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(r => obs.observe(r));
+    } else {
+        reveals.forEach(r => r.classList.add('revealed'));
+    }
+
+    // --- Canvas background (stars + grid) ---
+    (function initCanvasBg() {
+        const canvas = document.getElementById('bg-canvas');
+        if (!canvas || !canvas.getContext) return;
+        const ctx = canvas.getContext('2d');
+        let w = canvas.width = canvas.clientWidth;
+        let h = canvas.height = canvas.clientHeight;
+        let stars = [];
+
+        function initStars() {
+            stars = [];
+            const count = Math.max(30, Math.floor((w * h) / 8000));
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h * 0.9,
+                    r: Math.random() * 1.4 + 0.3,
+                    alpha: Math.random() * 0.8 + 0.15,
+                    dy: Math.random() * 0.35 + 0.02
+                });
+            }
+        }
+
+        function drawGrid() {
+            ctx.save();
+            ctx.translate(0, h * 0.22);
+            ctx.strokeStyle = 'rgba(0,255,106,0.04)';
+            ctx.lineWidth = 1;
+            const rows = 12;
+            for (let i = 0; i < rows; i++) {
+                const y = (i / rows) * (h * 0.8);
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+                ctx.stroke();
+            }
+            for (let i = 0; i < 20; i++) {
+                const x = (i / 19) * w;
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x - (h * 0.6), h * 0.8);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            const grad = ctx.createLinearGradient(0, 0, 0, h);
+            grad.addColorStop(0, '#051014');
+            grad.addColorStop(1, '#020507');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, w, h);
+
+            drawGrid();
+
+            for (let s of stars) {
+                s.y += s.dy;
+                if (s.y > h) {
+                    s.y = 0;
+                    s.x = Math.random() * w;
+                }
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        let resizeTimer;
+        function onResize() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                w = canvas.width = canvas.clientWidth;
+                h = canvas.height = canvas.clientHeight;
+                initStars();
+            }, 120);
+        }
+        window.addEventListener('resize', onResize);
+        initStars();
+        draw();
+    })();
+
+    // --- Menu toggle (legacy, si existe) ---
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    if (menuToggle && menu) {
+        menuToggle.addEventListener("click", () => {
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        });
+    }
+
+    // --- Intro auto-hide (legacy, si existe) ---
+    const intro = document.getElementById("intro");
+    if (intro) {
+        setTimeout(() => {
+            intro.style.display = "none";
+        }, 4000);
+    }
 });
-// ---------- HERO PARALLAX (text + illustration move on scroll, performant) ----------
+
+// ============================================================
+// HERO PARALLAX (texto e imagen se mueven al hacer scroll)
+// ============================================================
 (() => {
-  const hero = document.querySelector('.hero');
-  const heroLeft = document.querySelector('.hero-left');
-  const heroImg = document.querySelector('.hero-illustration');
-  if (!hero || (!heroLeft && !heroImg)) return;
+    const hero = document.querySelector('.hero');
+    const heroLeft = document.querySelector('.hero-left');
+    const heroImg = document.querySelector('.hero-illustration');
+    if (!hero || (!heroLeft && !heroImg)) return;
 
-  let latestY = 0;
-  let ticking = false;
-  const maxOffset = 40; // px (tweak intensity)
+    let latestY = 0;
+    let ticking = false;
+    const maxOffset = 40; // px
 
-  function onScroll() {
-    latestY = window.scrollY;
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateParallax(latestY);
-        ticking = false;
-      });
-      ticking = true;
+    function onScroll() {
+        latestY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax(latestY);
+                ticking = false;
+            });
+            ticking = true;
+        }
     }
-  }
 
-  function updateParallax(scrollY) {
-    const rect = hero.getBoundingClientRect();
-    // only while hero is in viewport (improves perf)
-    if (rect.bottom > 0 && rect.top < window.innerHeight) {
-      // calculate progress: -1..1 based on hero center relative to viewport center
-      const centerY = rect.top + rect.height / 2;
-      const progress = (window.innerHeight / 2 - centerY) / (window.innerHeight / 2);
-      // apply transforms
-      const leftTranslate = progress * (maxOffset * 0.7);   // text moves less
-      const imgTranslate = progress * (maxOffset * 1.1);    // image moves more for parallax
-      if (heroLeft) heroLeft.style.transform = `translateY(${leftTranslate}px)`;
-      if (heroImg) heroImg.style.transform = `translateY(${imgTranslate}px)`;
-      // subtle parallax X (optional)
-      if (heroImg) heroImg.style.transform += ` translateX(${Math.min(20, Math.abs(progress*8)) * (progress>0? -1:1)}px)`;
+    function updateParallax(scrollY) {
+        const rect = hero.getBoundingClientRect();
+        // Solo mientras el hero está en viewport
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            // Progreso: -1..1 basado en centro del hero vs centro del viewport
+            const centerY = rect.top + rect.height / 2;
+            const progress = (window.innerHeight / 2 - centerY) / (window.innerHeight / 2);
+            // Aplica transformaciones
+            const leftTranslate = progress * (maxOffset * 0.7);
+            const imgTranslate = progress * (maxOffset * 1.1);
+            if (heroLeft) heroLeft.style.transform = `translateY(${leftTranslate}px)`;
+            if (heroImg) heroImg.style.transform = `translateY(${imgTranslate}px)`;
+            // Parallax X sutil (opcional)
+            if (heroImg) heroImg.style.transform += ` translateX(${Math.min(20, Math.abs(progress * 8)) * (progress > 0 ? -1 : 1)}px)`;
+        }
     }
-  }
 
-  window.addEventListener('scroll', onScroll, {passive:true});
-  // initial frame
-  updateParallax(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateParallax(window.scrollY);
 })();
 
-// ---------- REVEAL ON SCROLL (if not present) ----------
+// ============================================================
+// REVEAL ON SCROLL (fallback si no existe)
+// ============================================================
 (() => {
-  const reveals = document.querySelectorAll('[data-reveal]');
-  if (!reveals.length) return;
-  const obs = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => obs.observe(r));
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if (!reveals.length) return;
+    const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => obs.observe(r));
 })();
