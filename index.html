@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <!-- ===========================
+        Metadatos y fuentes
+  ============================ -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>DevCulichi — Portafolio</title>
@@ -9,7 +12,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- INTRO OVERLAY -->
+  <!-- ===========================
+        INTRO OVERLAY (Animación inicial)
+  ============================ -->
   <div id="intro-overlay" class="intro-overlay" aria-hidden="true">
     <div class="intro-wrapper" role="img" aria-label="Intro DevCulichi">
       <svg id="intro-svg" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid meet" class="intro-svg">
@@ -18,7 +23,9 @@
     </div>
   </div>
 
-  <!-- OFFCANVAS MENU -->
+  <!-- ===========================
+        MENÚ OFFCANVAS (Móvil)
+  ============================ -->
   <aside id="offcanvas" class="offcanvas" aria-hidden="true" aria-label="Menu">
     <div class="offcanvas-top">
       <div class="offcanvas-logo">DevCulichi</div>
@@ -51,7 +58,9 @@
     </div>
   </aside>
 
-  <!-- HEADER -->
+  <!-- ===========================
+        HEADER (Barra superior)
+  ============================ -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">DevCulichi</a>
@@ -68,9 +77,13 @@
     </div>
   </header>
 
-  <!-- MAIN -->
+  <!-- ===========================
+        MAIN (Contenido principal)
+  ============================ -->
   <main>
-    <!-- HERO -->
+    <!-- =======================
+          HERO (Presentación)
+    ======================== -->
     <section id="hero" class="hero">
       <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
       <div class="container hero-inner">
@@ -80,7 +93,9 @@
             A <span class="neon">Frontend Engineer.</span><br>
             I help startups <span class="neon">Launch</span> & <span class="neon">Grow</span> their products
           </h1>
-          <p class="hero-desc">Interfaces rápidas, limpias y con buen rendimiento — React · Node · Docker.</p>
+          <p class="hero-desc">
+            Interfaces rápidas, limpias y con buen rendimiento — React · Node · Docker.
+          </p>
           <div class="hero-actions">
             <a href="#proyectos" class="btn">Ver proyectos</a>
             <a href="#" class="btn btn-outline">Descargar CV</a>
@@ -92,115 +107,111 @@
       </div>
     </section>
 
-    <!-- PROYECTOS -->
+    <!-- =======================
+          PROYECTOS (Portfolio)
+    ======================== -->
+    <section id="proyectos" class="container section">
+      <h2>Projects</h2>
+      <p class="muted">A brief showcase of selected works</p>
+      <div class="projects-grid">
+        <!-- Project: Calculator -->
+        <article class="card" data-reveal>
+          <!-- Imagen superior del proyecto -->
+          <div
+            class="card-img"
+            role="img"
+            aria-label="Calculator app screenshot"
+            style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/calculator.png');">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Calculator App</h3>
+            <div class="card-desc-wrap">
+              <p class="card-desc">
+                A lightweight calculator with memory and keyboard shortcuts. Built with modern JavaScript and CSS,
+                responsive across devices and optimized for quick interactions.
+              </p>
+              <!-- Overlay de fade -->
+              <div class="card-fade" aria-hidden="true"></div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/yourusername/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
+                <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
+              </a>
+              <a href="https://yourdomain.com/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
+                <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
+              </a>
+            </div>
+          </div>
+        </article>
 
-<!-- PROYECTOS -->
-<section id="proyectos" class="container section">
-  <h2>Projects</h2>
-  <p class="muted">A brief showcase of selected works</p>
-
-  <div class="projects-grid">
-    <!-- Project: Calculator -->
-    <article class="card" data-reveal>
-      <!-- top thumbnail (background) -->
-      <div
-        class="card-img"
-        role="img"
-        aria-label="Calculator app screenshot"
-        style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/calculator.png');">
+        <!-- Project: ToDo App -->
+        <article class="card" data-reveal>
+          <div
+            class="card-img"
+            role="img"
+            aria-label="ToDo app screenshot"
+            style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/todo.png');">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ToDo App</h3>
+            <div class="card-desc-wrap">
+              <p class="card-desc">
+                Fullstack ToDo application with authentication and persistence. React front-end, Node/Express backend,
+                and Docker-ready deployment scripts — ideal as a starter for production demos.
+              </p>
+              <div class="card-fade" aria-hidden="true"></div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/yourusername/todo-app" target="_blank" rel="noopener noreferrer" class="card-link">
+                <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
+              </a>
+              <a href="https://yourdomain.com/todo" target="_blank" rel="noopener noreferrer" class="card-link">
+                <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="card-body">
-        <h3 class="card-title">Calculator App</h3>
-
-        <div class="card-desc-wrap">
-          <p class="card-desc">
-            A lightweight calculator with memory and keyboard shortcuts. Built with modern JavaScript and CSS,
-            responsive across devices and optimized for quick interactions.
-          </p>
-          <!-- fade overlay -->
-          <div class="card-fade" aria-hidden="true"></div>
-        </div>
-
-        <div class="card-actions">
-          <a href="https://github.com/yourusername/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
-            <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
-          </a>
-          <a href="https://yourdomain.com/calculator" target="_blank" rel="noopener noreferrer" class="card-link">
-            <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Project: ToDo App -->
-    <article class="card" data-reveal>
-      <div
-        class="card-img"
-        role="img"
-        aria-label="ToDo app screenshot"
-        style="background-image: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.36)), url('assets/projects/todo.png');">
-      </div>
-
-      <div class="card-body">
-        <h3 class="card-title">ToDo App</h3>
-
-        <div class="card-desc-wrap">
-          <p class="card-desc">
-            Fullstack ToDo application with authentication and persistence. React front-end, Node/Express backend,
-            and Docker-ready deployment scripts — ideal as a starter for production demos.
-          </p>
-          <div class="card-fade" aria-hidden="true"></div>
-        </div>
-
-        <div class="card-actions">
-          <a href="https://github.com/yourusername/todo-app" target="_blank" rel="noopener noreferrer" class="card-link">
-            <img src="assets/icons/github.svg" alt="GitHub" class="icon"> Code
-          </a>
-          <a href="https://yourdomain.com/todo" target="_blank" rel="noopener noreferrer" class="card-link">
-            <img src="assets/icons/external-link.svg" alt="Demo" class="icon"> Demo
-          </a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-    <!-- TOOLING -->
-
+    <!-- =======================
+          TOOLING (Tecnologías)
+    ======================== -->
     <section id="tooling" class="container section">
       <h2>Tooling</h2>
       <p class="muted">Technologies & Tools</p>
       <div class="tooling-grid">
         <div class="tooling-card" data-reveal>
-          <img src="assets/icons/html.svg" alt="HTML"><h4>HTML</h4>
+          <img src="assets/icons/html.svg" alt="HTML">
+          <h4>HTML</h4>
           <small>Semantics & Accessibility</small>
         </div>
         <div class="tooling-card" data-reveal>
-          <img src="assets/icons/css.svg" alt="CSS"><h4>CSS</h4>
+          <img src="assets/icons/css.svg" alt="CSS">
+          <h4>CSS</h4>
           <small>Layouts (Grid / Flex)</small>
         </div>
         <div class="tooling-card" data-reveal>
-          <img src="assets/icons/javascript.svg" alt="JavaScript"><h4>JavaScript</h4>
+          <img src="assets/icons/javascript.svg" alt="JavaScript">
+          <h4>JavaScript</h4>
           <small>ES6+, DOM & Tooling</small>
         </div>
         <div class="tooling-card" data-reveal>
-          <img src="assets/icons/git.svg" alt="Git"><h4>Git</h4>
+          <img src="assets/icons/git.svg" alt="Git">
+          <h4>Git</h4>
           <small>Version Control</small>
         </div>
         <div class="tooling-card" data-reveal>
-          <img src="assets/icons/github.svg" alt="GitHub"><h4>GitHub</h4>
+          <img src="assets/icons/github.svg" alt="GitHub">
+          <h4>GitHub</h4>
           <small>Repositories & CI</small>
         </div>
       </div>
-      </section> 
+    </section> 
 
-    
-
-    <!-- CONTACTO -->
-
+    <!-- =======================
+          CONTACTO (Información)
+    ======================== -->
     <section id="contacto" class="container section">
       <h2>Contact</h2>
       <p class="muted">Available for projects and collaborations.</p>
@@ -210,27 +221,36 @@
         <p><strong>📍 Ubicación:</strong> Guadalajara, Jalisco</p>
       </div>
       <div class="contact-social">
-        <a href="https://github.com/SoyCulichi" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"> GitHub</a>
-        <a href="https://mx.linkedin.com/in/christian-armando-velasco-estrada-a24590382/en" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
-        <a href="mailto:culichi2603@gmail.com"><img src="assets/icons/html.svg" alt="Email"> Email</a>
+        <a href="https://github.com/SoyCulichi" target="_blank">
+          <img src="assets/icons/github.svg" alt="GitHub"> GitHub
+        </a>
+        <a href="https://mx.linkedin.com/in/christian-armando-velasco-estrada-a24590382/en" target="_blank">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="mailto:culichi2603@gmail.com">
+          <img src="assets/icons/html.svg" alt="Email"> Email
+        </a>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-
+  <!-- ===========================
+        FOOTER (Pie de página)
+  ============================ -->
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> DevCulichi — Available · <a href="#">CV</a></small>
+      <small>
+        © <span id="year"></span> DevCulichi — Available · <a href="#">CV</a>
+      </small>
     </div>
   </footer>
 
-  <!-- SCRIPT -->
-
+  <!-- ===========================
+        SCRIPTS (JS principal y año dinámico)
+  ============================ -->
   <script src="script.js"></script>
-
   <script>
-    // año dinámico
+    // Actualiza el año en el footer automáticamente
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
